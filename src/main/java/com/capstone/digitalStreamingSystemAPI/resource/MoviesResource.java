@@ -19,7 +19,6 @@ public class MoviesResource {
 		this.moviesService = moviesService;
 	}
 	
-	//Get all movies
 	@GetMapping("/all")
 	public ResponseEntity<List<Movies>> getAllMovies() {
 		List<Movies> movies = moviesService.getAllMovies();
