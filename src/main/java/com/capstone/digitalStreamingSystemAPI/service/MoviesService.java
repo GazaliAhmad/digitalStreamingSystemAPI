@@ -25,4 +25,14 @@ public class MoviesService {
 				-> new RuntimeException("Movie with ID: " + id + " not found"));
 	}
 	
+	public Movies addMovies(Movies movie) {
+		return moviesRepository.save(movie);
+	}
+	
+	/*public Movies addMovies(Movies movie) {
+		Movies.setId((long)(moviesRepository.findAll().size() + 1));
+				return moviesRepository.save(movie);
+	}
+	
+	 */
 }

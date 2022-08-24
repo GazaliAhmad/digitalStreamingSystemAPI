@@ -5,10 +5,7 @@ import com.capstone.digitalStreamingSystemAPI.service.MoviesService;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,12 +31,11 @@ public class MoviesResource {
 		return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
 	
-	/*
-	@GetMapping("/all/{id}")
-	public ResponseEntity<Movies> getMovieById(@PathVariable("id") Long id) {
-		Movies movie = moviesService.findMoviesById(id);
-		return new ResponseEntity<>(movie, HttpStatus.OK);
+	@PostMapping("/add")
+	public ResponseEntity<Movies> addMovies(@RequestBody Movies movie) {
+		Movies newMovie = moviesService.addMovies(movie);
+		return new ResponseEntity<>(newMovie, HttpStatus.OK);
 	}
 	
-	 */
+	
 }
