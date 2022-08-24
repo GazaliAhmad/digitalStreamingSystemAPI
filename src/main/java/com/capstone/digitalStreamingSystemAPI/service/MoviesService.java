@@ -40,4 +40,8 @@ public class MoviesService {
 	public Movies updateMovies(Movies movie) {
 		return moviesRepository.save(movie);
 	}
+	
+	public void deleteMovies(Long id) {
+		moviesRepository.deleteById(id);
+	}
 }
