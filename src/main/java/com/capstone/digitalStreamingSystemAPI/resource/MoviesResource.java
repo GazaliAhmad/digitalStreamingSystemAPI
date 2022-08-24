@@ -37,5 +37,10 @@ public class MoviesResource {
 		return new ResponseEntity<>(newMovie, HttpStatus.OK);
 	}
 	
+	@PutMapping("/update")
+	public ResponseEntity<Movies> updateMovies(@RequestBody Movies movie) {
+		Movies updatedMovie = moviesService.updateMovies(movie);
+		return new ResponseEntity<>(updatedMovie, HttpStatus.OK);
+	}
 	
 }
