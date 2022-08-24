@@ -19,4 +19,10 @@ public class MoviesService {
 	public List<Movies> getAllMovies() {
 		return moviesRepository.findAll();
 	}
+	
+	public Movies findMoviesById(Long id) {
+		return moviesRepository.findById(id).orElseThrow(()
+				-> new RuntimeException("Movie with ID: " + id + " not found"));
+	}
+	
 }
