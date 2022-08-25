@@ -25,27 +25,27 @@ public class MoviesResource {
 		return new ResponseEntity<>(movies, HttpStatus.OK);
 	}
 	
-	@GetMapping("/find/{id}")
-	public ResponseEntity<Movies> findMoviesById(@PathVariable("id") Long id) {
+	@GetMapping("/find/{Id}")
+	public ResponseEntity<Movies> findMovieById(@PathVariable("Id") Long id) {
 		Movies movie = moviesService.findMoviesById(id);
 		return new ResponseEntity<>(movie, HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	public ResponseEntity<Movies> addMovies(@RequestBody Movies movie) {
+	public ResponseEntity<Movies> addMovie(@RequestBody Movies movie) {
 		Movies newMovie = moviesService.addMovies(movie);
 		return new ResponseEntity<>(newMovie, HttpStatus.OK);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Movies> updateMovies(@RequestBody Movies movie) {
+	public ResponseEntity<Movies> updateMovie(@RequestBody Movies movie) {
 		Movies updatedMovie = moviesService.updateMovies(movie);
 		return new ResponseEntity<>(updatedMovie, HttpStatus.OK);
 	}
 	
 	@Transactional
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Void> deleteMovies(@PathVariable("id") Long id) {
+	public ResponseEntity<Void> deleteMovie(@PathVariable("id") Long id) {
 		moviesService.deleteMovies(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

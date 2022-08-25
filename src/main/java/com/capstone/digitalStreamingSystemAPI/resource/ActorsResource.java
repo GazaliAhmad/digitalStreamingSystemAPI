@@ -24,19 +24,19 @@ public class ActorsResource {
 	
 	// another method instead like in MoviesResource. Throws exception if not found.
 	@RequestMapping("/find/{Id}")
-	public ResponseEntity<Actors> findActorsById(@PathVariable("Id") Long id) {
+	public ResponseEntity<Actors> findActorById(@PathVariable("Id") Long id) {
 		Actors actor = actorsRepository.findById(id).orElseThrow(()
 				-> new RuntimeException("Actor with ID: " + id + " not found"));
 		return new ResponseEntity<>(actor, HttpStatus.OK);
 	}
 	
 	@RequestMapping("/add")
-	public ResponseEntity<Actors> addActors(@RequestBody Actors actor) {
+	public ResponseEntity<Actors> addActor(@RequestBody Actors actor) {
 		return new ResponseEntity<>(actorsRepository.save(actor), HttpStatus.OK);
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<Actors> updateActors(@RequestBody Actors actor) {
+	public ResponseEntity<Actors> updateActor(@RequestBody Actors actor) {
 		return new ResponseEntity<>(actorsRepository.save(actor), HttpStatus.OK);
 	}
 	
