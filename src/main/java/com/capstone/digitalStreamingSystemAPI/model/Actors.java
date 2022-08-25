@@ -15,6 +15,20 @@ public class Actors implements Serializable {
 	private char gender;
 	private Integer age;
 	
+	
+	// movies_movie_id
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_movie_id")
+	private Movies movie;
+	
+	public Movies getMovie() {
+		return movie;
+	}
+	
+	public void setMovie(Movies movie) {
+		this.movie = movie;
+	}
+	
 	public Actors() {
 	}
 	
