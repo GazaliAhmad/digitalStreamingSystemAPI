@@ -2,7 +2,6 @@ package com.capstone.digitalStreamingSystemAPI.resource;
 
 import com.capstone.digitalStreamingSystemAPI.model.Movies;
 import com.capstone.digitalStreamingSystemAPI.service.MoviesService;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +48,15 @@ public class MoviesResource {
 		moviesService.deleteMovies(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
+	// Construction Zone
+	
+	@PutMapping("/{movieId}/actors/{actorsId}")
+	public ResponseEntity<Movies> addActorToMovie(@PathVariable("movieId") Long movieId, @PathVariable("actorsId") Long actorsId) {
+		Movies movie = moviesService.addActorToMovie(movieId, actorsId);
+		return new ResponseEntity<>(movie, HttpStatus.OK);
+	}
+	
+	//
 	
 }

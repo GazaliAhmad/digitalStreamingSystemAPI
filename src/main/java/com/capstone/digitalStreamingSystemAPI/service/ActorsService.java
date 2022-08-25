@@ -2,9 +2,12 @@ package com.capstone.digitalStreamingSystemAPI.service;
 
 import com.capstone.digitalStreamingSystemAPI.model.Actors;
 import com.capstone.digitalStreamingSystemAPI.repository.ActorsRepository;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -15,6 +18,7 @@ public class ActorsService {
 	public ActorsService(@Qualifier("actors") ActorsRepository actorsRepository) {
 		this.actorsRepository = actorsRepository;
 	}
+	
 	
 	public List<Actors> getAllActors() {
 		return actorsRepository.findAll();

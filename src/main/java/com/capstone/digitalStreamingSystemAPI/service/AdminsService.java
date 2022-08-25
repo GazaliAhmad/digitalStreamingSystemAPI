@@ -4,11 +4,11 @@ import com.capstone.digitalStreamingSystemAPI.model.Admin;
 import com.capstone.digitalStreamingSystemAPI.repository.AdminsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class AdminsService {
-	
 	private final AdminsRepository adminsRepository;
 	
 	@Autowired

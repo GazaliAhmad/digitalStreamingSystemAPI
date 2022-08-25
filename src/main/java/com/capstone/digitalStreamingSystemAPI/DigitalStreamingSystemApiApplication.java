@@ -11,14 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.capstone.digitalStreamingSystemAPI")
-// Ensuring all the beans are created
+// Scan the package and find the classes that are annotated.
 public class DigitalStreamingSystemApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DigitalStreamingSystemApiApplication.class, args);
 	}
 	
-	
+	// Cors configuration for allowing cross-origin requests.
 	@Configuration
 	public static class CorsConfiguration {
 		@Bean

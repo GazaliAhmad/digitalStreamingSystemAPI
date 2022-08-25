@@ -10,6 +10,7 @@ public class MoviesActors implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	private Long ma_id;
+	
 	private Long movie_id;
 	private Long actor_id;
 	

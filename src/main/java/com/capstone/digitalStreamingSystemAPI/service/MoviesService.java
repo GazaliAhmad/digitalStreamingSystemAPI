@@ -5,7 +5,6 @@ import com.capstone.digitalStreamingSystemAPI.repository.MoviesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -45,4 +44,13 @@ public class MoviesService {
 	public void deleteMovies(Long id) {
 		moviesRepository.deleteById(id);
 	}
+	
+	// Construction Zone
+	public Movies addActorToMovie(Long movieId, Long actorsId) {
+		Movies movie = findMoviesById(movieId);
+		movie.addActor(actorsId);
+		return updateMovies(movie);
+	}
+	
+	//
 }

@@ -2,6 +2,8 @@ package com.capstone.digitalStreamingSystemAPI.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Actors implements Serializable {
@@ -10,13 +12,31 @@ public class Actors implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	private Long actor_id;
+	
+	// Setting ManyToMany relationship with Movies class
+	
+	// The following 2 lines works
+	@ManyToMany(mappedBy = "actors")
+	private Set<Movies> movies = new HashSet<>();
+	
+	
+	
+	
+	//@ManyToMany
+	//@JoinTable(name = "movie_actor", joinColumns = @JoinColumn(name = "actor_id"),
+	//		inverseJoinColumns = @JoinColumn(name = "movie_id"))
+	//Set<Movies> movies;
+	
+	// End construction zone
+	
 	private String first_name;
 	private String last_name;
 	private char gender;
 	private Integer age;
 	
 	// This is to create a OneToOne relationship between Actors and Movies.
-	/*@OneToOne(cascade = CascadeType.ALL)
+	/*
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_movie_id")
 	private Movies movie;
 	
@@ -78,6 +98,13 @@ public class Actors implements Serializable {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+	
+	//
+	public Set<Movies> getMovies() {
+		return movies;
+	}
+	
+	//
 	
 	@Override
 	public String toString() {
