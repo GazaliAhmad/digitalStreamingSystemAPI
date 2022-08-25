@@ -15,9 +15,8 @@ public class Actors implements Serializable {
 	private char gender;
 	private Integer age;
 	
-	
-	// movies_movie_id
-	@OneToOne(cascade = CascadeType.ALL)
+	// This is to create a OneToOne relationship between Actors and Movies.
+	/*@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_movie_id")
 	private Movies movie;
 	
@@ -28,7 +27,7 @@ public class Actors implements Serializable {
 	public void setMovie(Movies movie) {
 		this.movie = movie;
 	}
-	
+	*/
 	public Actors() {
 	}
 	

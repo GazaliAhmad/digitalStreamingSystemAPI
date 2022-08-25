@@ -14,6 +14,7 @@ public class Movies implements Serializable {
 	private Integer movie_cost;
 	private Integer movie_year;
 	
+	
 	public Movies() {
 	
 	}
