@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@ToString
 @Table(name = "reviews")
 public class Reviews implements Serializable{
 	

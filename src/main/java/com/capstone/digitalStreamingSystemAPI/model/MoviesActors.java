@@ -20,9 +20,9 @@ public class MoviesActors implements Serializable {
 	private Long ma_id;
 	
 	@Column(name="movie_id")
-	private Long movie_id;
+	private Long ma_movie_id;
 	
 	@Column(name="actor_id")
-	private Long actor_id;
+	private Long ma_actor_id;
 	
 }

@@ -4,6 +4,8 @@ import com.capstone.digitalStreamingSystemAPI.model.Actors;
 import com.capstone.digitalStreamingSystemAPI.repository.ActorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +18,18 @@ public class ActorsService {
 	public ActorsService(@Qualifier("actors") ActorsRepository actorsRepository) {
 		this.actorsRepository = actorsRepository;
 	}
+	// ManyToMany relationship between Actors and Movies
 	
-	public List<Actors> getAllActors() {
-		return actorsRepository.findAll();
+	public ResponseEntity<Object> getAllActors() {
+		List<Actors> actors = actorsRepository.findAll();
+		if (actors.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(actors, HttpStatus.OK);
 	}
+	//public List<Actors> getAllActors() {
+	//	return actorsRepository.findAll();
+	//}
 	
 	public Actors findActorById(Long id) {
 		return actorsRepository.findById(id).orElseThrow(()

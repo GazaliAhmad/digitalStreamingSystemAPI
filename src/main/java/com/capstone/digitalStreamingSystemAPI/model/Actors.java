@@ -1,16 +1,19 @@
 package com.capstone.digitalStreamingSystemAPI.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 @Table(name = "actors")
 public class Actors implements Serializable {
 	
@@ -30,6 +33,28 @@ public class Actors implements Serializable {
 	
 	@Column(name = "age",length = 2, nullable=false)
 	private Integer age;
+	
+	//31/08/2022 ManyToMany relationship with movies
+	
+	@ManyToMany
+	@JoinTable(name ="MoviesActors", joinColumns = @JoinColumn(name = "ma_actor_id",
+			referencedColumnName = "actor_id"),
+			inverseJoinColumns = @JoinColumn(name = "ma_movie_id",
+					referencedColumnName = "movie_id"))
+	
+	private Collection<Movies> movies;
+	
+	// This is the owner side of the relationship
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"actor_id = " + actor_id + ", " +
+				"first_name = " + first_name + ", " +
+				"last_name = " + last_name + ", " +
+				"gender = " + gender + ", " +
+				"age = " + age + ")";
+	}
 }
 	
 	
