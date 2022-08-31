@@ -66,3 +66,8 @@ Ref: [Spring Data Entity Mappings](https://youtu.be/N7nLUQMmjxs?t=463)
 At the timestamp it has the same diagram of the db. OneToMany with joining table.
 
 This should be correct.
+
+## State of the project
+@01/09/2020
+
+Database relationship established. OneToMany with joining table.
