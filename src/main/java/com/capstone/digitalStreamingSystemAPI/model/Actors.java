@@ -31,8 +31,6 @@ public class Actors implements Serializable {
 	@Column(name = "age",length = 2, nullable=false)
 	private Integer age;
 	
-	
-	
 	@ManyToMany
 	@JoinTable(name ="MoviesActors", joinColumns = @JoinColumn(name = "ma_actor_id",
 			referencedColumnName = "actor_id"),
@@ -40,8 +38,6 @@ public class Actors implements Serializable {
 					referencedColumnName = "movie_id"))
 	
 	private Collection<Movies> movies;
-	
-
 	
 	@Override
 	public String toString() {

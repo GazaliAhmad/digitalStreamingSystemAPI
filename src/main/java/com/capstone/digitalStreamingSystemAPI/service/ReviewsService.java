@@ -4,6 +4,8 @@ import com.capstone.digitalStreamingSystemAPI.model.Reviews;
 import com.capstone.digitalStreamingSystemAPI.repository.ReviewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +19,12 @@ public class ReviewsService {
 		this.reviewsRepository = reviewsRepository;
 	}
 	
-	public List<Reviews> getAllReviews() {
-		return reviewsRepository.findAll();
+	public ResponseEntity<Object> getAllReviews() {
+		List<Reviews> reviews = reviewsRepository.findAll();
+		if (reviews.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(reviews, HttpStatus.OK);
 	}
 	
 	public Reviews findReviewById(Long id){
@@ -40,6 +46,10 @@ public class ReviewsService {
 }
 
 /*
+
+public List<Reviews> getAllReviews() {
+		return reviewsRepository.findAll();
+	}
 // ManyToMany relationship between Reviews and Movies
 	
 	public ResponseEntity<Object> getAllReviews() {
