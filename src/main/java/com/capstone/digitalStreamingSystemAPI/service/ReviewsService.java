@@ -38,3 +38,15 @@ public class ReviewsService {
 		reviewsRepository.deleteById(id);
 	}
 }
+
+/*
+// ManyToMany relationship between Reviews and Movies
+	
+	public ResponseEntity<Object> getAllReviews() {
+		List<Reviews> reviews = reviewsRepository.findAll();
+		if (reviews.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(reviews, HttpStatus.OK);
+	}
+	*/

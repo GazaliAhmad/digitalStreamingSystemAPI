@@ -5,13 +5,11 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 @Table(name = "movies")
 public class Movies implements Serializable {
 	
@@ -28,10 +26,29 @@ public class Movies implements Serializable {
 	
 	@Column(name = "movie_year", length = 25, nullable = false)
 	private String movie_year;
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"movie_id = " + movie_id + ", " +
+				"movie_title = " + movie_title + ", " +
+				"movie_cost = " + movie_cost + ", " +
+				"movie_year = " + movie_year + ")";
+	}
 }
+
+/*
+// Connection to the table of Reviews
+	/*@ManyToMany
+	@JoinTable(name ="ReviewsMovies",
+			joinColumns = @JoinColumn(name = "rm_movie_id",
+			referencedColumnName = "movie_id"),
+			inverseJoinColumns = @JoinColumn(name = "rm_review_id",
+					referencedColumnName = "review_id"))
+	
 	
 	// 26/08/2022
-	/*
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	
 	@JoinColumn(name = "movie_id" , referencedColumnName = "movie_id")
@@ -53,7 +70,7 @@ public class Movies implements Serializable {
 				"movie_year = " + movie_year + ")";
 	}
 }
-*/
+
 
 // Setting ManyToMany relationship with Actors class
 //25/08/2022
@@ -62,3 +79,5 @@ public class Movies implements Serializable {
 //		inverseJoinColumns = @JoinColumn(name = "actor_id"))
 //private Set<Actors> actors = new HashSet<Actors>();
 // End construction zone
+
+ */

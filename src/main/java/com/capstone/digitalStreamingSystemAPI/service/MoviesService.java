@@ -29,14 +29,6 @@ public class MoviesService {
 		return moviesRepository.save(movie);
 	}
 	
-	
-	/*
-	public Movies addMovies(Movies movie) {
-		Movies.setId((long)(moviesRepository.findAll().size() + 1));
-				return moviesRepository.save(movie);
-	}
-	 */
-	
 	public Movies updateMovies(Movies movie) {
 		return moviesRepository.save(movie);
 	}
@@ -45,12 +37,19 @@ public class MoviesService {
 		moviesRepository.deleteById(id);
 	}
 	
-	// Construction Zone
-	//public Movies addActorToMovie(Long movieId, Long actorsId) {
-	//	Movies movie = findMoviesById(movieId);
-	//	movie.addActor(actorsId);
-	//	return updateMovies(movie);
-	//}
-	
-	//
 }
+
+/*
+	public Movies addMovies(Movies movie) {
+		Movies.setId((long)(moviesRepository.findAll().size() + 1));
+				return moviesRepository.save(movie);
+	}
+	
+	Construction Zone
+	public Movies addActorToMovie(Long movieId, Long actorsId) {
+		Movies movie = findMoviesById(movieId);
+		movie.addActor(actorsId);
+		return updateMovies(movie);
+	}
+
+*/

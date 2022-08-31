@@ -21,7 +21,6 @@ public class ActorsResource {
 		return actorsRepository.findAll();
 	}
 	
-	// another method instead like in MoviesResource. Throws exception if not found.
 	@RequestMapping("/find/{Id}")
 	public ResponseEntity<Actors> findActorById(@PathVariable("Id") Long id) {
 		Actors actor = actorsRepository.findById(id).orElseThrow(()
@@ -45,3 +44,6 @@ public class ActorsResource {
 	}
 	
 }
+
+// ("/find/{Id}")
+// another method instead like in MoviesResource. Throws exception if not found.

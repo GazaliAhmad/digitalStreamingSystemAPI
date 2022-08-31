@@ -18,7 +18,6 @@ public class ActorsService {
 	public ActorsService(@Qualifier("actors") ActorsRepository actorsRepository) {
 		this.actorsRepository = actorsRepository;
 	}
-	// ManyToMany relationship between Actors and Movies
 	
 	public ResponseEntity<Object> getAllActors() {
 		List<Actors> actors = actorsRepository.findAll();
@@ -27,9 +26,6 @@ public class ActorsService {
 		}
 		return new ResponseEntity<>(actors, HttpStatus.OK);
 	}
-	//public List<Actors> getAllActors() {
-	//	return actorsRepository.findAll();
-	//}
 	
 	public Actors findActorById(Long id) {
 		return actorsRepository.findById(id).orElseThrow(()
@@ -48,3 +44,8 @@ public class ActorsService {
 		actorsRepository.deleteById(id);
 	}
 }
+
+// ManyToMany relationship between Actors and Movies
+//public List<Actors> getAllActors() {
+//	return actorsRepository.findAll();
+//}
