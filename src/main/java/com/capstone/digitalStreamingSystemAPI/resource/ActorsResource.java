@@ -5,6 +5,7 @@ import com.capstone.digitalStreamingSystemAPI.repository.ActorsRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -15,7 +16,6 @@ public class ActorsResource {
 	public ActorsResource(ActorsRepository actorsRepository) {
 		this.actorsRepository = actorsRepository;
 	}
-	
 	@RequestMapping("/all")
 	public List<Actors> getAllActors() {
 		return actorsRepository.findAll();

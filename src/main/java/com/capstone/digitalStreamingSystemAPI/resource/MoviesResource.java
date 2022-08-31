@@ -51,11 +51,11 @@ public class MoviesResource {
 	
 	// Construction Zone
 	
-	@PutMapping("/{movieId}/actors/{actorsId}")
-	public ResponseEntity<Movies> addActorToMovie(@PathVariable("movieId") Long movieId, @PathVariable("actorsId") Long actorsId) {
-		Movies movie = moviesService.addActorToMovie(movieId, actorsId);
-		return new ResponseEntity<>(movie, HttpStatus.OK);
-	}
+	//@PutMapping("/{movieId}/actors/{actorsId}")
+	//public ResponseEntity<Movies> addActorToMovie(@PathVariable("movieId") Long movieId, @PathVariable("actorsId") Long actorsId) {
+	//	Movies movie = moviesService.addActorToMovie(movieId, actorsId);
+	//	return new ResponseEntity<>(movie, HttpStatus.OK);
+	//}
 	
 	//
 	

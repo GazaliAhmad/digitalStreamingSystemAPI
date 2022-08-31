@@ -1,13 +1,15 @@
-# Current State
+# Notes on progress
 
-@26/08/2020
+## State of the project
 
-Doing the ManyToMany relationship. It's not up to the requirements yet.
+@25/08/2020
+
+Doing the ManyToMany relationship. It's not up to the requirements yet. Ref: [Spring Data JPA Relationships](https://youtu.be/f5bdUjEIbrg?t=10m30s)
 
 - Movies can have many Actors.
 - Actors can have many Movies.
 
-## Add actor to movie
+### Add actor to movie
 The Json is: 
 ```JSON
 {
@@ -28,7 +30,7 @@ The Json is:
 ```
 The result is 200. But when get all actors, the movie array is empty. Check DB and not result. Data is not written, and yet I get a 200 success.
 
-## Add movie to actor
+### Add movie to actor
 The Json is:
 
 ```JSON
@@ -50,6 +52,17 @@ The Json is:
 ```
 The result is 500.
 
-## Attempt
+### Attempt
 
 Reread on the ManyToMany relationship. Key table is the MoviesActors. It is not created in the Schema.
+
+## State of the project
+@26/08/2020
+
+All the lines of code for the mapping done yesterday are commented out. Wrong application.
+
+Ref: [Spring Data Entity Mappings](https://youtu.be/N7nLUQMmjxs?t=463)
+
+At the timestamp it has the same diagram of the db. OneToMany with joining table.
+
+This should be correct.

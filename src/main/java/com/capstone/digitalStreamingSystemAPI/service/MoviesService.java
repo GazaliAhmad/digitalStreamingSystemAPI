@@ -46,11 +46,11 @@ public class MoviesService {
 	}
 	
 	// Construction Zone
-	public Movies addActorToMovie(Long movieId, Long actorsId) {
-		Movies movie = findMoviesById(movieId);
-		movie.addActor(actorsId);
-		return updateMovies(movie);
-	}
+	//public Movies addActorToMovie(Long movieId, Long actorsId) {
+	//	Movies movie = findMoviesById(movieId);
+	//	movie.addActor(actorsId);
+	//	return updateMovies(movie);
+	//}
 	
 	//
 }

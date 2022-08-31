@@ -1,25 +1,43 @@
 package com.capstone.digitalStreamingSystemAPI.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
+@Table(name = "actors")
 public class Actors implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+	@Column(name = "actor_id")
 	private Long actor_id;
+	
+	@Column(name = "first_name", length = 50, nullable = false)
+	private String first_name;
+	
+	@Column(name = "last_name", length = 50, nullable = false)
+	private String last_name;
+	
+	@Column(name = "gender", length = 1, nullable=false)
+	private char gender;
+	
+	@Column(name = "age",length = 2, nullable=false)
+	private Integer age;
+}
+	
 	
 	// Setting ManyToMany relationship with Movies class
 	
 	// The following 2 lines works
-	@ManyToMany(mappedBy = "actors")
-	private Set<Movies> movies = new HashSet<>();
-	
-	
+	//@ManyToMany(mappedBy = "actors")
+	//private Set<Movies> movies = new HashSet<>();
 	
 	
 	//@ManyToMany
@@ -29,10 +47,7 @@ public class Actors implements Serializable {
 	
 	// End construction zone
 	
-	private String first_name;
-	private String last_name;
-	private char gender;
-	private Integer age;
+	
 	
 	// This is to create a OneToOne relationship between Actors and Movies.
 	/*
@@ -48,72 +63,5 @@ public class Actors implements Serializable {
 		this.movie = movie;
 	}
 	*/
-	public Actors() {
-	}
-	
-	public Actors(Long actor_id, String first_name, String last_name, char gender, Integer age) {
-		this.actor_id = actor_id;
-		this.first_name = first_name;
-		this.last_name = last_name;
-		this.gender = gender;
-		this.age = age;
-	}
-	
-	public Long getActor_id() {
-		return actor_id;
-	}
-	
-	public void setActor_id(Long actor_id) {
-		this.actor_id = actor_id;
-	}
-	
-	public String getFirst_name() {
-		return first_name;
-	}
-	
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-	
-	public String getLast_name() {
-		return last_name;
-	}
-	
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-	
-	public char getGender() {
-		return gender;
-	}
-	
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-	
-	public Integer getAge() {
-		return age;
-	}
-	
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-	
-	//
-	public Set<Movies> getMovies() {
-		return movies;
-	}
-	
-	//
-	
-	@Override
-	public String toString() {
-		return "Actors{" +
-				"actor_id=" + actor_id +
-				", first_name='" + first_name + '\'' +
-				", last_name='" + last_name + '\'' +
-				", gender=" + gender +
-				", age=" + age +
-				'}';
-	}
-}
+
+
