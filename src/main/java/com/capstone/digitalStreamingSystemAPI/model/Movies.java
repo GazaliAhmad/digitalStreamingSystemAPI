@@ -27,6 +27,9 @@ public class Movies implements Serializable {
 	@Column(name = "movie_year", length = 25, nullable = false)
 	private String movie_year;
 	
+	@Column(name = "movie_image", length = 500)
+	private String movie_image_url;
+	
 	@Override
 	public String toString() {
 		return getClass().getSimpleName() + "(" +
