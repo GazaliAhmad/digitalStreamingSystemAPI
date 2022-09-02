@@ -17,7 +17,7 @@ public class Admin implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "admin_id")
-	private Long admin_id;
+	private Integer admin_id;
 	
 	@Column(name = "first_name", length = 50, nullable = false)
 	private String first_name;
@@ -33,4 +33,7 @@ public class Admin implements Serializable {
 	
 	@Column(name = "email", length = 50, nullable=false, unique=true)
 	private String email;
+	
+	@Column(name = "phone_number", length = 50, nullable=false, unique=true)
+	private String phone_number;
 }

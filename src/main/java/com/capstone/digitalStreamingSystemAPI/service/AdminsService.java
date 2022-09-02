@@ -21,7 +21,7 @@ public class AdminsService {
 	}
 	
 	public Admin findAdminById(Long id){
-		return adminsRepository.findById(id).orElseThrow(()
+		return adminsRepository.findById(Math.toIntExact(id)).orElseThrow(()
 				-> new RuntimeException("Admin with ID: " + id + " not found"));
 	}
 	
@@ -34,6 +34,6 @@ public class AdminsService {
 	}
 	
 	public void deleteAdmin(Long id){
-		adminsRepository.deleteById(id);
+		adminsRepository.deleteById(Math.toIntExact(id));
 	}
 }
