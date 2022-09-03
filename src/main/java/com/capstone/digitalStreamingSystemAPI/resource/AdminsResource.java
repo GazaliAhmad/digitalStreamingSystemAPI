@@ -2,56 +2,43 @@ package com.capstone.digitalStreamingSystemAPI.resource;
 
 import com.capstone.digitalStreamingSystemAPI.model.Admin;
 import com.capstone.digitalStreamingSystemAPI.repository.AdminsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminsResource {
 	
-	private final AdminsRepository adminsRepository;
-	
-	public AdminsResource(AdminsRepository adminsRepository) {
-		this.adminsRepository = adminsRepository;
-	}
+	@Autowired
+	private AdminsRepository adminsRepository;
 	
 	@GetMapping("/all")
-	public List<Admin> getAllAdmins() {
-		return adminsRepository.findAll();
-	}
-	//Authorization
-	@GetMapping("/auth/{email}/{password}")
-	public ResponseEntity<List<Admin>> findAdminByEmailPassword(@PathVariable("email") String email,
-	                                                      @PathVariable("password") String password) {
-		System.out.println("email: " + email + " password: " + password);
-		List<Admin> adminList = adminsRepository.findAll();
-		//-> new RuntimeException("Admin with ID: " + email + " not found"));
-		return new ResponseEntity<>(adminsRepository.getByEmailAndPassword(email, password), HttpStatus.OK);
+	public ResponseEntity<List<Admin>> getAllAdmins() {
+		List<Admin> admins = adminsRepository.findAll();
+		return new ResponseEntity<>(admins, HttpStatus.OK);
 	}
 	
-	@GetMapping("/add")
-	public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin) {
-		return new ResponseEntity<>(adminsRepository.save(admin), HttpStatus.OK);
-	}
-	
-	@GetMapping("/find/{Id}")
-	public ResponseEntity<Admin> findAdminById(@PathVariable("Id") Integer id) {
-		Admin admin= adminsRepository.findById(id).orElseThrow(()
-				-> new RuntimeException("Admin with ID: " + id + " not found"));
-		return new ResponseEntity<>(admin, HttpStatus.OK);
-	}
-	
-	@PutMapping("/update")
-	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin) {
-		return new ResponseEntity<>(adminsRepository.save(admin), HttpStatus.OK);
-	}
-	
-	@DeleteMapping("/delete/{Id}")
-	public void deleteAdmin(@PathVariable("Id") Integer id) {
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> deleteAdmin(@PathVariable("id") Integer id) {
 		adminsRepository.deleteById(id);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@PostMapping("/add")
+	@Transactional
+	public ResponseEntity<Admin> addAdmin(@RequestBody Admin admin) {
+		adminsRepository.save(admin);
+		return new ResponseEntity<>(admin, HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/{email}/{password}")
+	public Boolean getAdmin(@PathVariable("email") String email, @PathVariable("password") String password) {
+		Optional<Admin> admin = adminsRepository.findByEmailAndPassword(email, password);
+		return admin.isPresent();
+	}
 }
