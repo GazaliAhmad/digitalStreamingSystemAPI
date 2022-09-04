@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "c3af4481-fdb5-49cd-b6d5-9b6d9c9f2930",
+		"name": "Digital Streaming System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18601392"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Get all movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movie_title\": \"7th Son\",\r\n    \"movie_cost\": 12,\r\n    \"movie_year\": \"2020\",\r\n    \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Graduation10.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a movie by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/movies/delete/29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"delete",
+								"29"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find a movie by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n        \"movie_id\": 29,\r\n        \"movie_title\": \"7th Son\",\r\n        \"movie_cost\": 12,\r\n        \"movie_year\": \"2021\",\r\n        \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Graduation10.jpg\"\r\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/find/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"find",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"movie_id\": 30,\r\n        \"movie_title\": \"7th Son\",\r\n        \"movie_cost\": 12,\r\n        \"movie_year\": \"2021\",\r\n        \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Graduation10.jpg\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actors",
+			"item": [
+				{
+					"name": "Get all actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actors/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actors",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an actor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Sally\",\r\n    \"last_name\": \"Brooke\",\r\n    \"gender\": \"F\",\r\n    \"age\": 36,\r\n    \"movies\": [\r\n        {\r\n            \"movie_id\": 30,\r\n            \"movie_title\": \"7th Son\",\r\n            \"movie_cost\": 12,\r\n            \"movie_year\": \"2021\",\r\n            \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Graduation10.jpg\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/actors/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actors",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an actor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actor_id\": 32,\r\n    \"first_name\": \"Sally\",\r\n    \"last_name\": \"Brooke\",\r\n    \"gender\": \"F\",\r\n    \"age\": 36,\r\n    \"movies\": [\r\n        {\r\n            \"movie_id\": 30,\r\n            \"movie_title\": \"7th Son\",\r\n            \"movie_cost\": 12,\r\n            \"movie_year\": \"2021\",\r\n            \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Graduation10.jpg\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/actors/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actors",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find an actor by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/actors/find/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actors",
+								"find",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/actors/delete/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actors",
+								"delete",
+								"32"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get all reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/reviews/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reviews",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"date_posted\": \"25/7/2021\",\r\n        \"description\": \"sto nec. Viverra justo nec ultrices dui sapien. Orci porta non pulvinar neque l tempor incididunt ut labore et dolore magna aliqua. Mollis aliquam Lorem ipsut sit amet. Mi proin sed libero enim sed faucibus turpis in. aoreet suspendisse interdum consectetur. Congue quisque egestas diam iec ultrices tincidunt arcu non so m dn metus vulputate eu scelerisque felis. Laoreet id donIrttitora aliquet eget sit amet. Mi proin sed libero enim sed faucibus turpis in. aoreet suspendisse interdum consectetur. Congue quisque egestas diam iec ultrices tincidunt arcu non sodales neque. Rhoncus mattis rhoncus urna neque viverra juut poolor sit amet, consectetur adipiscing elit, sed do eiusmod n arcu cursus euismod quis viverra. Turpis massa tincidunt dui ut ornare lectus.\",\r\n        \"rating\": 3,\r\n        \"movies\": [\r\n            {\r\n                \"movie_id\": 4,\r\n                \"movie_title\": \"Live Forever\",\r\n                \"movie_cost\": 10,\r\n                \"movie_year\": \"2021\",\r\n                \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Easter_Girl.jpg\"\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reviews/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reviews",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a review",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"review_id\": 35,\r\n        \"date_posted\": \"25/7/2021\",\r\n        \"description\": \"sto nec. Viverra justo nec ultrices dui sapien. Orci porta non pulvinar neque l tempor incididunt ut labore et dolore magna aliqua. Mollis aliquam Lorem ipsut sit amet. Mi proin sed libero enim sed faucibus turpis in. aoreet suspendisse interdum consectetur. Congue quisque egestas diam iec ultrices tincidunt arcu non so m dn metus vulputate eu scelerisque felis. Laoreet id donIrttitora aliquet eget sit amet. Mi proin sed libero enim sed faucibus turpis in. aoreet suspendisse interdum consectetur. Congue quisque egestas diam iec ultrices tincidunt arcu non sodales neque. Rhoncus mattis rhoncus urna neque viverra juut poolor sit amet, consectetur adipiscing elit, sed do eiusmod n arcu cursus euismod quis viverra. Turpis massa tincidunt dui ut ornare lectus.\",\r\n        \"rating\": 5,\r\n        \"movies\": [\r\n            {\r\n                \"movie_id\": 4,\r\n                \"movie_title\": \"Live Forever\",\r\n                \"movie_cost\": 10,\r\n                \"movie_year\": \"2021\",\r\n                \"movie_image_url\": \"https://cdn.dailyclipart.net/wp-content/uploads/medium/Easter_Girl.jpg\"\r\n            }\r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/reviews/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reviews",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find a review by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/reviews/find/35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reviews",
+								"find",
+								"35"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/reviews/delete/35",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"reviews",
+								"delete",
+								"35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admins",
+			"item": [
+				{
+					"name": "Get all admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Kenny\",\r\n    \"last_name\": \"Loggins\",\r\n    \"email\":\"kenny123@gmail.com\",\r\n    \"password\":\"12345\",\r\n    \"phone_number\":\"8675309\",\r\n    \"username\":\"admin3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"first_name\": \"Rebecca\",\r\n        \"last_name\": \"Smith\",\r\n        \"username\": \"admin5\",\r\n        \"password\": \"12345saa6\",\r\n        \"email\": \"rebsmith88@gmail.com\",\r\n        \"phone_number\": \"86323375309\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an admin by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/admin/delete/41",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"delete",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Admin by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/admin/find/36",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"find",
+								"36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Kenny\",\r\n    \"last_name\": \"Loggins\",\r\n    \"email\":\"kenny123@gmail.com\",\r\n    \"password\":\"12345\",\r\n    \"phone_number\":\"8675309\",\r\n    \"username\":\"admin3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Admin by email and password",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Kenny\",\r\n    \"last_name\": \"Loggins\",\r\n    \"email\":\"kenny123@gmail.com\",\r\n    \"password\":\"12345\",\r\n    \"phone_number\":\"8675309\",\r\n    \"username\":\"admin3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/kenny123@gmail.com/12345",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"kenny123@gmail.com",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

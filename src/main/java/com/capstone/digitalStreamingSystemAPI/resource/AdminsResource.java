@@ -36,6 +36,18 @@ public class AdminsResource {
 		return new ResponseEntity<>(admin, HttpStatus.CREATED);
 	}
 	
+	@PutMapping("/update")
+	@Transactional
+	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin) {
+		return new ResponseEntity<>(adminsRepository.save(admin), HttpStatus.OK);
+	}
+	
+	@GetMapping("/find/{id}")
+	public ResponseEntity<Admin> findAdminById(@PathVariable("id") Integer id) {
+		Admin admin = adminsRepository.findById(id).orElseThrow(()
+				-> new RuntimeException("Admin with ID: " + id + " not found"));
+		return new ResponseEntity<>(admin, HttpStatus.OK);
+	}
 	@GetMapping("/{email}/{password}")
 	public Boolean getAdmin(@PathVariable("email") String email, @PathVariable("password") String password) {
 		Optional<Admin> admin = adminsRepository.findByEmailAndPassword(email, password);
