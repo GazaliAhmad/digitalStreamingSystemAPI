@@ -8,12 +8,11 @@ spring:
         password: '*#m@RC0s$%'
         driver-class-name: com.mysql.cj.jdbc.Driver
     jpa:
-        ddl-auto: update
-        show-sql: true
-        open-in-view: true
-        format_sql: true
-        hibernate:
-          ddl-auto: update
         properties:
             hibernate:
+              ddl-auto: update
+              show_sql: true
+              use_sql_comments: true
+              format_sql: true
+              open-in-view: true
               dialect: org.hibernate.dialect.MySQL5InnoDBDialect
